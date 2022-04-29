@@ -29,21 +29,21 @@ Page({
     this.setData({
       loginLoading: true,
     })
-    if (this.data.nickName && this.data.passWord) {
-      wx.cloud.callContainer({
-        "config": {
-          "env": "prod-7gl2nhrec21bc63f"
-        },
-        "path": "/api/count",
-        "header": {
-          "X-WX-SERVICE": "flask-2rhs"
-        },
-        "method": "GET",
-      }).then((msg) => {
-        console.log(msg.data.data)
-      }, (data) => {
-        console.log(msg.data.data)
-      } )
+    const {
+      nickName,
+      passWord
+    } = this.data;
+    if (nickName && passWord) {
+      wx.cloud.callFunction({
+        name: 'user',
+        data: {
+          $url: "login",
+          nickName,
+          passWord,
+        }
+      }).then((res) => {
+        console.log(res)
+      })
     }
     this.setData({
       loginLoading: false,

@@ -3,8 +3,8 @@
     用户登录
   </view>
   <van-cell-group>
-    <van-field value="{{ nickName }}" required clearable label="用户名" placeholder="请输入用户名" bind:change="onChangeNickName" />
-    <van-field value="{{ passWord }}" required type="password" clearable label="密码" placeholder="请输入密码" bind:change="onChangePassWord" />
+    <van-field value="{{ nickName }}" required label="用户名" placeholder="请输入用户名" bind:change="onChangeNickName" />
+    <van-field value="{{ passWord }}" required type="password" label="密码" placeholder="请输入密码" bind:change="onChangePassWord" />
   </van-cell-group>
   <view class="login-button">
     <van-button type="primary" loading="{{!!loginLoading}}" size="normal" bind:click="onSubmit" block>登录</van-button>
